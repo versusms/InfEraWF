@@ -1,31 +1,34 @@
 <?php
 /**
- * @author     Alexander A. Popov <versusms@gmail.com>
- * @package    InfEra[Base]
+ * @author     Alexander A. Popov <alejandro.popov@outlook.com>
+ * @package    InfEra\WAFP[Base]
  * @subpackage Pages[Controllers]
  */
-namespace InfEra\Base\Pages\Controllers
-{  
-    use InfEra\System\Localization as L;
-    /**
-     * Textpages controller
-     *
-     * @author     Alexander A. Popov <versusms@gmail.com>
-     * @version    1.0
-     * @package    InfEra[Base]
-     * @subpackage Pages[Controllers]
-     */
-    class PagesController extends \InfEra\System\Mvc\Controller
-    {    
-       /**
-        * 
-        * @return Mvc\Controller
-        */
-        public function Index()
-        {
-            $this->ViewBag['Title'] = L::__('Home Page');
-            return $this->View();            
-        }
-    }
+declare(strict_types = 1);
 
+namespace InfEra\WAFP\Base\Pages\Controllers;
+
+use InfEra\WAFP\System\Localization as L;
+use InfEra\WAFP\System\Mvc\Controllers\Controller;
+use InfEra\WAFP\System\Mvc\Results\ActionResult;
+
+/**
+ * Textpages controller
+ *
+ * @author     Alexander A. Popov <alejandro.popov@outlook.com>
+ * @version    1.0
+ * @package    InfEra\WAFP\[Base]
+ * @subpackage Pages[Controllers]
+ */
+class PagesController extends Controller
+{
+    /**
+     *
+     * @return ActionResult
+     */
+    public function Index() : ActionResult
+    {
+        $this->ViewBag['Title'] = L::__('Home Page');
+        return $this->View();
+    }
 }

@@ -1,61 +1,48 @@
 <?php
 /**
- * @author     Alexander A. Popov <versusms@gmail.com>
- * @package    InfEra
+ * @author     Alexander A. Popov <alejandro.popov@outlook.com>
+ * @package    InfEra\WAFP
  */
-namespace InfEra
-{ 
+declare(strict_types = 1);
+
+namespace InfEra\WAFP;
+/**
+ * Autoloader for namespaces.
+ *
+ * @author     Alexander A. Popov <alejandro.popov@outlook.com>
+ * @version    1.0
+ * @package    InfEra\WAFP
+ */
+class Autoloader
+{
     /**
-     * Autoloader for namespaces.
+     * Load file with class.
      *
-     * @author     Alexander A. Popov <versusms@gmail.com>
+     * @author     Alexander A. Popov <alejandro.popov@outlook.com>
      * @version    1.0
-     * @package    InfEra
+     * @param string $ClassName Class name
      */
-    class Autoloader
-    {      
-        /**
-         * Load file with class.
-         * 
-         * @author     Alexander A. Popov <versusms@gmail.com>
-         * @version    1.0
-         * @param string $ClassName Class name
-         */
-        public static function Load($ClassName)
-        {            
-            if(strpos($ClassName, 'Smarty') === false)
-            {
-                //var_dump($ClassName);
-                $tNSPath = str_replace('\\', '/', $ClassName);
-                if (strpos($tNSPath, "InfEra/") !== false)
-                {
-                    $tNSPath = str_replace("InfEra/", $GLOBALS['APP_SETTINGS']['FrameworkPath'], $tNSPath);
-                }
-                else
-                {
-                    $tNSPath = $GLOBALS['APP_SETTINGS']['ProjectPath'] . "Code/" . $tNSPath;
-                }            
+    public static function Load(string $ClassName)
+    {
+        if (strpos($ClassName, 'Smarty') === false) {
 
-                $filepath = $tNSPath . '.class.php';            
-
-                if (file_exists($filepath))
-                {                
-                    require_once($filepath);
-                }
-                else
-                { 
-                    trigger_error
-                    (
-                        "[AutoLoader] Can't find file " . $filepath . " for class " . $ClassName,
-                        E_USER_ERROR
-                    );
-                }
+            $tNSPath = str_replace('\\', '/', $ClassName);
+            if (strpos($tNSPath, "InfEra/WAFP/") !== false) {
+                $tNSPath = str_replace("InfEra/WAFP/", $GLOBALS['APP_SETTINGS']['FrameworkPath'], $tNSPath);
+            } else {
+                $tNSPath = $GLOBALS['APP_SETTINGS']['ProjectPath'] . "Src/" . $tNSPath;
             }
-        }        
+
+            $filepath = $tNSPath . '.class.php';
+
+            if (file_exists($filepath)) {
+                require_once($filepath);
+            }
+        }
     }
-    
-    /**
-     * Registering autoloader     
-     */
-    \spl_autoload_register('InfEra\Autoloader::Load');
 }
+
+/**
+ * Registering autoloader
+ */
+\spl_autoload_register('InfEra\WAFP\Autoloader::Load');

@@ -1,18 +1,18 @@
 <?php
 /**
- * @author     Alexander A. Popov <versusms@gmail.com>
+ * @author     Alexander A. Popov <alejandro.popov@outlook.com>
  * @version    1.0
  * @package    InfEra[System]
  * @subpackage Authorization
  */
 namespace InfEra\System\Security\Authorization
 {        
-    use \InfEra\Application as Application;
+    use InfEra\WAFP\Application;
     require_once(Application::$Configuration->FrameworkPath . 'Libs/FaceBook/FaceBook.class.php');
     /**
      * FaceBook Authorization Provider
      *
-     * @author     Alexander A. Popov <versusms@gmail.com>
+     * @author     Alexander A. Popov <alejandro.popov@outlook.com>
      * @version    1.0
      * @package    InfEra[System]
      * @subpackage Security\Authorization
@@ -46,7 +46,7 @@ namespace InfEra\System\Security\Authorization
         /**
          * Detection of Accessibility of Current Provider
          * 
-         * @author     Alexander A. Popov <versusms@gmail.com>
+         * @author     Alexander A. Popov <alejandro.popov@outlook.com>
          * @version    1.0
          * 
          * @return boolean Is provider accessible 
@@ -60,7 +60,7 @@ namespace InfEra\System\Security\Authorization
         /**
          * Constructor 
          * 
-         * @author     Alexander A. Popov <versusms@gmail.com>
+         * @author     Alexander A. Popov <alejandro.popov@outlook.com>
          * @version    1.0
          */
         public function __construct()
@@ -78,7 +78,7 @@ namespace InfEra\System\Security\Authorization
         /**
          * Initialization of Current Provider 
          * 
-         * @author     Alexander A. Popov <versusms@gmail.com>
+         * @author     Alexander A. Popov <alejandro.popov@outlook.com>
          * @version    1.0
          */
         public function Init()
@@ -110,7 +110,7 @@ namespace InfEra\System\Security\Authorization
         /**
          * Getting login url
          * 
-         * @author     Alexander A. Popov <versusms@gmail.com>
+         * @author     Alexander A. Popov <alejandro.popov@outlook.com>
          * @version    1.0
          * 
          * @return string Login url 
@@ -129,7 +129,7 @@ namespace InfEra\System\Security\Authorization
         /**
          * Getting logout url
          * 
-         * @author     Alexander A. Popov <versusms@gmail.com>
+         * @author     Alexander A. Popov <alejandro.popov@outlook.com>
          * @version    1.0
          * 
          * @return string Logot url 
@@ -157,7 +157,7 @@ namespace InfEra\System\Security\Authorization
         /**
          * Getting User object
          * 
-         * @author     Alexander A. Popov <versusms@gmail.com>
+         * @author     Alexander A. Popov <alejandro.popov@outlook.com>
          * @version    1.0
          * 
          * @return InfEra\Base\User\Models\BaseUser User object 
